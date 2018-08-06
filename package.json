@@ -1,0 +1,56 @@
+{
+  "name": "xyz-icon-set-react",
+  "version": "0.2.0",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index",
+  "scripts": {
+    "clean": "rimraf dist",
+    "babel": "babel src -d dist --extensions \".ts,.tsx\"",
+    "build": "npm run babel",
+    "lint": "eslint src tests",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "mocha tests --compilers js:babel-register",
+    "test:dev": "npm run test -- --watch",
+    "prepublish": "npm run clean & npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bartaxyz/xyz-icon-set-react.git"
+  },
+  "keywords": [
+    "xyz",
+    "icon",
+    "set",
+    "icons"
+  ],
+  "author": "Ondřej Bárta (https://ondrejbarta.xyz)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bartaxyz/xyz-icon-set-react/issues"
+  },
+  "homepage": "https://github.com/bartaxyz/xyz-icon-set-react",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.32",
+    "@babel/core": "^7.0.0-beta.32",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.32",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.32",
+    "@babel/preset-env": "^7.0.0-beta.32",
+    "@babel/preset-typescript": "^7.0.0-beta.32",
+    "@types/jsdom": "^11.0.4",
+    "@types/node": "^10.0.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "handlebars": "^4.0.11",
+    "jsdom": "^11.10.0",
+    "mocha": "^5.1.1",
+    "rimraf": "^2.6.2",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "react-html-parser": "^2.0.2",
+    "xyz-icon-set": "^0.2.0"
+  }
+}
