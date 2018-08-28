@@ -1,23 +1,28 @@
 import ReactHTMLParser from 'react-html-parser';
-import XYZIconSet from 'xyz-icon-set';
+import XYZIconSet, { IconTheme, IconComponents } from 'xyz-icon-set';
 
-const categories = Object.keys(XYZIconSet);
+export interface IconProps {
+	theme: IconTheme;
+}
 
-const icons = {};
+const iconKeys = Object.keys(XYZIconSet);
+const iconComponents = {};
 
-categories.forEach((category) => {
-    const iconKeys = Object.keys(XYZIconSet[category]);
+const prepareIconSource = source => {
+	return source
+		.replace('xmlns:xlink', 'xmlnsXlink')
+		.replace('xml:space', 'xmlSpace');
+};
 
-    icons[category] = [];
-    iconKeys.forEach((iconKey) => {
-        const iconObject = XYZIconSet[category][iconKey];
-        const name = iconObject.name;
-        const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+iconKeys.forEach(iconKey => {
+	const iconObject = XYZIconSet[iconKey];
+	const name = iconObject.regular.name;
+	const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
 
-        icons[category][capitalizedName] = (props) => {
-            return ReactHTMLParser(iconObject.source);
-        }; 
-    })
+	iconComponents[`${capitalizedName}Icon`] = (props: IconProps) => {
+		const theme = props.theme || 'regular';
+		return ReactHTMLParser(prepareIconSource(iconObject[theme].source));
+	};
 });
 
-export default icons;
+export default iconComponents as IconComponents;
