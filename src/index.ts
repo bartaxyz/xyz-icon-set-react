@@ -1,27 +1,55 @@
 import ReactHTMLParser from 'react-html-parser';
-import XYZIconSet, { IconTheme, IconComponents } from 'xyz-icon-set';
+import XYZIconSet, {
+	IconOptions,
+	IconComponents,
+	iconNames,
+	IconContstructorOptions,
+} from 'xyz-icon-set';
+
+export {
+	IconTheme,
+	IconOptions,
+	IconContstructorOptions,
+	IconComponents,
+	IconCategory,
+	IconName,
+	IconComponentName,
+	iconCategories,
+	iconNames,
+	iconComponentNames,
+} from 'xyz-icon-set';
 
 export interface IconProps {
-	theme: IconTheme;
+	theme?: IconContstructorOptions['theme'];
+	fillOpacity?: IconOptions['fillOpacity'];
 }
 
-const iconKeys = Object.keys(XYZIconSet);
 const iconComponents = {};
 
 const prepareIconSource = source => {
 	return source
 		.replace('xmlns:xlink', 'xmlnsXlink')
-		.replace('xml:space', 'xmlSpace');
+		.replace('xml:space', 'xmlSpace')
+		.replace('fill-rule', 'fillRule')
+		.replace('clip-rule', 'clipRule')
+		.replace('fill-opacity', 'fillOpacity')
+		.replace('stroke-miterlimit', 'strokeMiterlimit')
+		.replace('stroke-linecap', 'strokeLinecap')
+		.replace('stroke-linejoin', 'strokeLinejoin')
+		.replace('viewbox', 'viewBox');
 };
 
-iconKeys.forEach(iconKey => {
-	const iconObject = XYZIconSet[iconKey];
-	const name = iconObject.regular.name;
-	const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+iconNames.forEach(iconName => {
+	const IconClass = XYZIconSet[iconName];
 
-	iconComponents[`${capitalizedName}Icon`] = (props: IconProps) => {
-		const theme = props.theme || 'regular';
-		return ReactHTMLParser(prepareIconSource(iconObject[theme].source));
+	iconComponents[iconName] = (props: IconProps) => {
+		const icon = new IconClass({
+			theme: props.theme || 'regular',
+		});
+		const iconSource = icon.toString({
+			fillOpacity: props.fillOpacity || 0,
+		});
+		return ReactHTMLParser(prepareIconSource(iconSource));
 	};
 });
 

@@ -1,13 +1,13 @@
 # XYZ Icon Set for React
 
-Official components package for icons from [XYZ Icon Set](https://github.com/bartaxyz/xyz-icon-set).
+Official React components package for icons from [XYZ Icon Set](https://github.com/bartaxyz/xyz-icon-set).
 
 ## Installation
 
 ### NPM
 
 ```bash
-npm i xyz-icon-set-react
+npm install xyz-icon-set-react
 ```
 
 ## Usage
@@ -16,12 +16,14 @@ npm i xyz-icon-set-react
 
 import XYZIconSet from 'xyz-icon-set-react';
 
-// Gets PaperPlane icon from 'regular' category
-const { PaperPlane } = XYZIconSet.regular;
+// Get PaperPlaneIcon
+const { PaperPlaneIcon } = XYZIconSet;
 
 // Render component
 const App = () => (
-    <PaperPlane />
+    <PaperPlaneIcon
+        theme="regular"
+    />
 );
 
 ```
