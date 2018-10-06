@@ -62,7 +62,7 @@ Opacity of the transparent fill inside of the icon. Accepts values between `0` a
 
 ```jsx
 <React.Fragment>
-    <PaperPlaneIcon> {/* fillOpacity defaults to 0 */}
+    <PaperPlaneIcon /> {/* fillOpacity defaults to 0 */}
     <PaperPlaneIcon fillOpacity={0.25} />
     <PaperPlaneIcon fillOpacity={0.5} />
 </React.Fragment>
