@@ -51,6 +51,6 @@
 	},
 	"dependencies": {
 		"react-html-parser": "^2.0.2",
-		"xyz-icon-set": "^0.34.0"
+		"xyz-icon-set": "^0.35.0"
 	}
 }
