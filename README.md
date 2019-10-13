@@ -19,9 +19,7 @@ npm install xyz-icon-set-react
 You can import icons selectively by its name with suffix "Icon" (to prevent variable name collisions and misuse of keywords in cases such as `return` or `copy` icons).
 
 ```typescript
-import XYZIconSet from 'xyz-icon-set-react';
-
-const { PaperPlaneIcon } = XYZIconSet;
+import { PaperPlaneIcon } from 'xyz-icon-set-react';
 ```
 
 
