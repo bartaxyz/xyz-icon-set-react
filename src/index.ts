@@ -5,6 +5,7 @@ import XYZIconSet, {
 	iconNames,
 	IconContstructorOptions,
 } from 'xyz-icon-set';
+import { FunctionComponent } from 'react';
 
 export {
 	IconTheme,
@@ -26,32 +27,21 @@ export interface IconProps {
 
 const iconComponents = {};
 
-const prepareIconSource = source => {
-	return source
-		.replace('xmlns:xlink', 'xmlnsXlink')
-		.replace('xml:space', 'xmlSpace')
-		.replace('fill-rule', 'fillRule')
-		.replace('clip-rule', 'clipRule')
-		.replace('fill-opacity', 'fillOpacity')
-		.replace('stroke-miterlimit', 'strokeMiterlimit')
-		.replace('stroke-linecap', 'strokeLinecap')
-		.replace('stroke-linejoin', 'strokeLinejoin')
-		.replace('viewbox', 'viewBox');
-};
-
 iconNames.forEach(iconName => {
 	const IconClass = XYZIconSet[iconName];
 
-	iconComponents[iconName] = ({
+	const IconComponent = ({
 		theme = 'regular',
 		fillOpacity = 0,
 	}: IconProps) => {
 		const icon = new IconClass({ theme });
 		const iconSource = icon.toString({ fillOpacity });
-		return ReactHTMLParser(prepareIconSource(iconSource));
+		return ReactHTMLParser(iconSource);
 	};
+
+	iconComponents[iconName] = IconComponent;
 });
 
-export type IconType = (props: IconProps) => ReturnType<typeof ReactHTMLParser>
+export type IconType = FunctionComponent<IconProps>;
 
 export default iconComponents as IconComponents<IconType>;
