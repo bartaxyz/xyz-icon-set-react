@@ -1,13 +1,11 @@
-
 {
-    "compilerOptions": {
-        "types": [
-            "node"
-        ]
-    },
-    "exclude": [
-        "node_modules",
-        "dist",
-        "build"
-    ],
+	"compilerOptions": {
+		"lib": ["ES6"],
+		"types": ["node"],
+		"declaration": true,
+		"jsx": "react",
+		"outDir": "dist/",
+		"rootDir": "src/"
+	},
+	"exclude": ["node_modules", "dist", "build"]
 }

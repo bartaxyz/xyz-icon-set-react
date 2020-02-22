@@ -42,15 +42,16 @@ const prepareIconSource = source => {
 iconNames.forEach(iconName => {
 	const IconClass = XYZIconSet[iconName];
 
-	iconComponents[iconName] = (props: IconProps) => {
-		const icon = new IconClass({
-			theme: props.theme || 'regular',
-		});
-		const iconSource = icon.toString({
-			fillOpacity: props.fillOpacity || 0,
-		});
+	iconComponents[iconName] = ({
+		theme = 'regular',
+		fillOpacity = 0,
+	}: IconProps) => {
+		const icon = new IconClass({ theme });
+		const iconSource = icon.toString({ fillOpacity });
 		return ReactHTMLParser(prepareIconSource(iconSource));
 	};
 });
 
-export default iconComponents as IconComponents;
+export type IconType = (props: IconProps) => ReturnType<typeof ReactHTMLParser>
+
+export default iconComponents as IconComponents<IconType>;
