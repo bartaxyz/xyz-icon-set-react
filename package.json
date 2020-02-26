@@ -6,13 +6,12 @@
 	"typings": "dist/index",
 	"scripts": {
 		"clean": "rimraf dist",
-		"babel": "babel src -d dist --extensions \".ts,.tsx\"",
 		"build": "tsc",
-		"lint": "eslint src tests",
-		"lint:fix": "npm run lint -- --fix",
+		"generate": "ts-node ./src/generate.ts",
 		"test": "mocha tests --compilers js:babel-register",
 		"test:dev": "npm run test -- --watch",
-		"prepare": "npm run clean & npm run build"
+		"prepare": "npm run generate",
+		"prepublishOnly": "npm run clean & npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -30,29 +29,19 @@
 		"url": "https://github.com/bartaxyz/xyz-icon-set-react/issues"
 	},
 	"homepage": "https://github.com/bartaxyz/xyz-icon-set-react",
+	"peerDependencies": {
+		"react": "16.12.0"
+	},
 	"devDependencies": {
-		"@babel/cli": "^7.0.0-beta.32",
-		"@babel/core": "^7.0.0-beta.32",
-		"@babel/plugin-proposal-class-properties": "^7.0.0-beta.32",
-		"@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.32",
-		"@babel/preset-env": "^7.0.0-beta.32",
-		"@babel/preset-typescript": "^7.0.0-beta.32",
-		"@types/jsdom": "^11.0.4",
-		"@types/node": "^10.0.0",
-		"@types/react-html-parser": "^2.0.1",
-		"chai": "^4.1.2",
-		"eslint": "^4.19.1",
-		"eslint-config-airbnb": "^16.1.0",
-		"eslint-plugin-import": "^2.11.0",
-		"jsdom": "^11.10.0",
-		"mocha": "^5.1.1",
-		"rimraf": "^2.6.2",
-		"typescript": "^2.6.2"
+		"@types/node": "10.0.0",
+		"@types/react": "16.9.22",
+		"@types/rimraf": "2.0.3",
+		"react": "16.12.0",
+		"rimraf": "2.6.2",
+		"ts-node": "8.6.2",
+		"typescript": "3.8.2"
 	},
 	"dependencies": {
-		"@types/react": "^16.9.22",
-		"react": "^16.12.0",
-		"react-html-parser": "^2.0.2",
 		"xyz-icon-set": "^0.41.1"
 	}
 }

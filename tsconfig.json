@@ -7,5 +7,5 @@
 		"outDir": "dist/",
 		"rootDir": "src/"
 	},
-	"exclude": ["node_modules", "dist", "build"]
+	"exclude": ["node_modules", "dist", "build", "src/generate.ts"]
 }

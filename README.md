@@ -2,8 +2,6 @@
 
 Official React components package for icons from [XYZ Icon Set](https://github.com/bartaxyz/xyz-icon-set).
 
-### 
-
 ## Usage
 
 ### Installation with NPM
@@ -19,12 +17,8 @@ npm install xyz-icon-set-react
 You can import icons selectively by its name with suffix "Icon" (to prevent variable name collisions and misuse of keywords in cases such as `return` or `copy` icons).
 
 ```typescript
-import XYZIconSet from 'xyz-icon-set-react';
-
-const { PaperPlaneIcon } = XYZIconSet;
+import { PaperPlaneIcon } from 'xyz-icon-set-react';
 ```
-
-
 
 ## Icon Component Reference
 
@@ -34,25 +28,11 @@ const App = () => (
 )
 ```
 
+## Themes
 
+Importing `PaperPlaneIcon` will import regular version of the icon. To import thin variant of the icon, import `PaperPlaneThinIcon` instead.
 
 ### Properties
-
-#### `theme`
-
-Either `regular` or `thin`. For icon visual reference, visit [XYZ Icon Set Website](https://ondrejbarta.xyz/xyz-icon-set).
-
-**Default value: `regular`**
-
-```jsx
-<React.Fragment>
-    <PaperPlaneIcon /> {/* theme defaults to "regular" */}
-    <PaperPlaneIcon theme="regular" />
-    <PaperPlaneIcon theme="thin" />
-</React.Fragment>
-```
-
-
 
 #### `fillOpacity`
 
