@@ -28,7 +28,7 @@ const App = () => (
 )
 ```
 
-## Themes
+### Themes
 
 Importing `PaperPlaneIcon` will import regular version of the icon. To import thin variant of the icon, import `PaperPlaneThinIcon` instead.
 
