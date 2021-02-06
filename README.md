@@ -49,3 +49,14 @@ Opacity of the transparent fill inside of the icon. Accepts values between `0` a
     <PaperPlaneIcon fillOpacity={0.5} />
 </React.Fragment>
 ```
+
+
+## License
+
+XYZ Icon Set is licensed under the MIT License.
+
+
+
+## Authors
+
+Ondřej Bárta &middot; [website](https://ondrejbarta.xyz) &middot; [twitter](https://twitter.com/bartaxyz)
