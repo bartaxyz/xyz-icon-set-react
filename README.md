@@ -2,7 +2,7 @@
 
 Official React components package for icons from [XYZ Icon Set](https://github.com/bartaxyz/xyz-icon-set).
 
-List of icons available at [XYZ Icon Set Website](https://ondrejbarta.xyz/pet-projects/xyz-icon-set)
+List of icons available at [XYZ Icon Set Website](https://ondrejbarta.com/pet-projects/xyz-icon-set/)
 
 ## Usage
 
