@@ -1,6 +1,6 @@
 {
 	"name": "xyz-icon-set-react",
-	"version": "0.41.5",
+	"version": "0.43.0",
 	"description": "Official React components package for icons from XYZ Icon Set",
 	"main": "dist/index.js",
 	"typings": "dist/index",
@@ -42,6 +42,6 @@
 		"typescript": "3.8.2"
 	},
 	"dependencies": {
-		"xyz-icon-set": "^0.41.1"
+		"xyz-icon-set": "^0.43.0"
 	}
 }
